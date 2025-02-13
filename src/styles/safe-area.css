@@ -1,0 +1,167 @@
+/* Safe Area Variables */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+
+/* Safe Area Padding Utilities */
+.pt-safe {
+  padding-top: calc(1rem + var(--safe-top));
+}
+
+.pr-safe {
+  padding-right: calc(1rem + var(--safe-right));
+}
+
+.pb-safe {
+  padding-bottom: calc(1rem + var(--safe-bottom));
+}
+
+.pl-safe {
+  padding-left: calc(1rem + var(--safe-left));
+}
+
+.px-safe {
+  padding-left: calc(1rem + var(--safe-left));
+  padding-right: calc(1rem + var(--safe-right));
+}
+
+.py-safe {
+  padding-top: calc(1rem + var(--safe-top));
+  padding-bottom: calc(1rem + var(--safe-bottom));
+}
+
+/* Safe Area Margin Utilities */
+.mt-safe {
+  margin-top: var(--safe-top);
+}
+
+.mr-safe {
+  margin-right: var(--safe-right);
+}
+
+.mb-safe {
+  margin-bottom: var(--safe-bottom);
+}
+
+.ml-safe {
+  margin-left: var(--safe-left);
+}
+
+/* Safe Area Position Utilities */
+.top-safe {
+  top: var(--safe-top);
+}
+
+.right-safe {
+  right: var(--safe-right);
+}
+
+.bottom-safe {
+  bottom: var(--safe-bottom);
+}
+
+.left-safe {
+  left: var(--safe-left);
+}
+
+/* Landscape Optimizations */
+@media (orientation: landscape) {
+  .landscape\:pt-safe {
+    padding-top: calc(0.5rem + var(--safe-top));
+  }
+
+  .landscape\:pr-safe {
+    padding-right: calc(0.5rem + var(--safe-right));
+  }
+
+  .landscape\:pb-safe {
+    padding-bottom: calc(0.5rem + var(--safe-bottom));
+  }
+
+  .landscape\:pl-safe {
+    padding-left: calc(0.5rem + var(--safe-left));
+  }
+
+  .landscape\:px-safe {
+    padding-left: calc(0.5rem + var(--safe-left));
+    padding-right: calc(0.5rem + var(--safe-right));
+  }
+
+  .landscape\:py-safe {
+    padding-top: calc(0.5rem + var(--safe-top));
+    padding-bottom: calc(0.5rem + var(--safe-bottom));
+  }
+}
+
+/* Print Styles */
+@media print {
+  .print\:p-0 {
+    padding: 0 !important;
+  }
+
+  .print\:m-0 {
+    margin: 0 !important;
+  }
+}
+
+/* Safe area variables */
+:root {
+  --sab: env(safe-area-inset-bottom);
+  --sat: env(safe-area-inset-top);
+  --sal: env(safe-area-inset-left);
+  --sar: env(safe-area-inset-right);
+}
+
+/* Padding utilities */
+.pt-safe {
+  padding-top: max(var(--sat), 1rem);
+}
+
+.pb-safe {
+  padding-bottom: max(var(--sab), 1rem);
+}
+
+.pl-safe {
+  padding-left: max(var(--sal), 1rem);
+}
+
+.pr-safe {
+  padding-right: max(var(--sar), 1rem);
+}
+
+/* Margin utilities */
+.mt-safe {
+  margin-top: max(var(--sat), 1rem);
+}
+
+.mb-safe {
+  margin-bottom: max(var(--sab), 1rem);
+}
+
+.ml-safe {
+  margin-left: max(var(--sal), 1rem);
+}
+
+.mr-safe {
+  margin-right: max(var(--sar), 1rem);
+}
+
+/* Inset utilities */
+.inset-safe {
+  top: var(--sat);
+  right: var(--sar);
+  bottom: var(--sab);
+  left: var(--sal);
+}
+
+/* Height utilities */
+.min-h-screen-safe {
+  min-height: calc(100vh - var(--sat) - var(--sab));
+}
+
+.h-screen-safe {
+  height: calc(100vh - var(--sat) - var(--sab));
+} 

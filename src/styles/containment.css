@@ -1,0 +1,127 @@
+/* Content Containment */
+.contain-content {
+  contain: content;
+}
+
+/* Size Containment */
+.contain-size {
+  contain: size;
+}
+
+/* Layout Containment */
+.contain-layout {
+  contain: layout;
+}
+
+/* Paint Containment */
+.contain-paint {
+  contain: paint;
+}
+
+/* Style Containment */
+.contain-style {
+  contain: style;
+}
+
+/* Strict Containment */
+.contain-strict {
+  contain: strict;
+}
+
+/* Combined Containment */
+.contain-size-layout {
+  contain: size layout;
+}
+
+.contain-layout-paint {
+  contain: layout paint;
+}
+
+.contain-all {
+  contain: strict;
+  content-visibility: auto;
+}
+
+/* Content Visibility */
+.content-visibility-auto {
+  content-visibility: auto;
+}
+
+.content-visibility-hidden {
+  content-visibility: hidden;
+}
+
+/* Container Types */
+.container-type-inline-size {
+  container-type: inline-size;
+}
+
+.container-type-size {
+  container-type: size;
+}
+
+.container-type-normal {
+  container-type: normal;
+}
+
+/* Container Names */
+.container-name-main {
+  container-name: main;
+}
+
+.container-name-sidebar {
+  container-name: sidebar;
+}
+
+.container-name-header {
+  container-name: header;
+}
+
+.container-name-footer {
+  container-name: footer;
+}
+
+/* Performance Classes */
+.perf-card {
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+.perf-list {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+.perf-image {
+  contain: layout size style;
+  content-visibility: auto;
+}
+
+.perf-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
+  contain: layout paint style;
+}
+
+/* Container Query Support */
+.container {
+  container-type: inline-size;
+}
+
+@container (min-width: 30em) {
+  .container-responsive {
+    /* Styles for container width >= 30em */
+  }
+}
+
+@container (min-width: 50em) {
+  .container-responsive {
+    /* Styles for container width >= 50em */
+  }
+}
+
+@container (min-width: 70em) {
+  .container-responsive {
+    /* Styles for container width >= 70em */
+  }
+} 

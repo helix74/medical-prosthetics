@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#F5F5F5"/>
+  <g transform="translate(150,100)">
+    <path 
+      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" 
+      stroke="#9CA3AF" 
+      stroke-width="2" 
+      fill="none"
+      transform="scale(4)"
+    />
+  </g>
+  <text 
+    x="200" 
+    y="200" 
+    font-family="Arial" 
+    font-size="16" 
+    fill="#6B7280" 
+    text-anchor="middle"
+  >
+    Image non disponible
+  </text>
+</svg> 

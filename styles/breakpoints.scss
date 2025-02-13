@@ -1,0 +1,78 @@
+// Breakpoint variables
+$breakpoint-xs: 320px;
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Device breakpoint mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm - 1px}) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-lg - 1px}) { @content; }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) { @content; }
+}
+
+// Responsive breakpoint mixins
+@mixin breakpoint-up($size) {
+  @media (min-width: #{map-get((
+    'xs': $breakpoint-xs,
+    'sm': $breakpoint-sm,
+    'md': $breakpoint-md,
+    'lg': $breakpoint-lg,
+    'xl': $breakpoint-xl,
+    '2xl': $breakpoint-2xl
+  ), $size)}) { @content; }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: #{map-get((
+    'xs': $breakpoint-xs - 1px,
+    'sm': $breakpoint-sm - 1px,
+    'md': $breakpoint-md - 1px,
+    'lg': $breakpoint-lg - 1px,
+    'xl': $breakpoint-xl - 1px,
+    '2xl': $breakpoint-2xl - 1px
+  ), $size)}) { @content; }
+}
+
+@mixin breakpoint-between($min, $max) {
+  @media (min-width: #{map-get((
+    'xs': $breakpoint-xs,
+    'sm': $breakpoint-sm,
+    'md': $breakpoint-md,
+    'lg': $breakpoint-lg,
+    'xl': $breakpoint-xl,
+    '2xl': $breakpoint-2xl
+  ), $min)}) and (max-width: #{map-get((
+    'xs': $breakpoint-xs - 1px,
+    'sm': $breakpoint-sm - 1px,
+    'md': $breakpoint-md - 1px,
+    'lg': $breakpoint-lg - 1px,
+    'xl': $breakpoint-xl - 1px,
+    '2xl': $breakpoint-2xl - 1px
+  ), $max)}) { @content; }
+}
+
+// Usage example
+.component {
+  padding: 2rem;
+  
+  @include mobile {
+    padding: 1rem;
+  }
+  
+  @include tablet {
+    padding: 1.5rem;
+  }
+
+  @include desktop {
+    padding: 2rem;
+  }
+} 

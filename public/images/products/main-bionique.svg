@@ -1,0 +1,22 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#F8FAFC"/>
+  
+  {/* Base de la main */}
+  <path d="M300 200C300 150 350 100 400 100C450 100 500 150 500 200V400C500 450 450 500 400 500C350 500 300 450 300 400V200Z" fill="#E2E8F0" stroke="#64748B" stroke-width="4"/>
+  
+  {/* Doigts */}
+  <path d="M320 250V350C320 370 335 385 350 385C365 385 380 370 380 350V250" stroke="#64748B" stroke-width="4"/>
+  <path d="M380 230V380C380 400 395 415 410 415C425 415 440 400 440 380V230" stroke="#64748B" stroke-width="4"/>
+  <path d="M440 220V400C440 420 455 435 470 435C485 435 500 420 500 400V220" stroke="#64748B" stroke-width="4"/>
+  
+  {/* Circuits */}
+  <path d="M350 150H450M400 150V450" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="4 4"/>
+  <circle cx="400" cy="300" r="30" fill="#0EA5E9" fill-opacity="0.2"/>
+  <circle cx="400" cy="300" r="10" fill="#0EA5E9"/>
+  
+  {/* Détails mécaniques */}
+  <circle cx="350" cy="200" r="5" fill="#64748B"/>
+  <circle cx="450" cy="200" r="5" fill="#64748B"/>
+  <circle cx="350" cy="400" r="5" fill="#64748B"/>
+  <circle cx="450" cy="400" r="5" fill="#64748B"/>
+</svg> 

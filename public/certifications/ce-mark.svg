@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#187baa">
+    <!-- CE Letters -->
+    <path d="M35 30 C25 30 20 35 20 45 L20 55 C20 65 25 70 35 70 L45 70 L45 65 L35 65 C28 65 25 62 25 55 L25 45 C25 38 28 35 35 35 L45 35 L45 30 L35 30Z"/>
+    <path d="M55 30 L55 70 L80 70 L80 65 L60 65 L60 52.5 L75 52.5 L75 47.5 L60 47.5 L60 35 L80 35 L80 30 L55 30Z"/>
+  </g>
+</svg> 
