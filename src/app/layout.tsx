@@ -52,12 +52,14 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body className={inter.className}>
+        <Header />
+        
         <div className="contain-layout-paint">
-          <Header />
+          <main className="content-visibility-auto">
+            {children}
+          </main>
         </div>
-        <main className="content-visibility-auto">
-          {children}
-        </main>
+
         <div className="contain-layout-paint">
           <Footer />
         </div>

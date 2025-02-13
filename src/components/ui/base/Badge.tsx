@@ -7,6 +7,7 @@ interface BadgeProps {
   icon?: string;
   text: string;
   variant?: 'primary' | 'secondary' | 'neutral' | 'success';
+  size?: 'sm' | 'base';
   className?: string;
 }
 
@@ -14,11 +15,13 @@ export const Badge = memo(function Badge({
   icon, 
   text, 
   variant = 'primary',
+  size = 'sm',
   className 
 }: BadgeProps) {
   const baseStyles = twMerge(
-    TYPOGRAPHY_STYLES.utils.getBody('base'),
-    'inline-flex items-center px-6 py-1.5 rounded-full font-medium',
+    size === 'sm' ? TYPOGRAPHY_STYLES.utils.getBody('sm') : TYPOGRAPHY_STYLES.utils.getBody('base'),
+    'inline-flex items-center rounded-full font-medium',
+    size === 'sm' ? 'px-3 py-1' : 'px-6 py-1.5',
     variant === 'primary' && twMerge(
       'bg-gradient-to-r from-[#187baa]/10 to-[#187baa]/5',
       'text-[#187baa]',
@@ -38,7 +41,7 @@ export const Badge = memo(function Badge({
 
   return (
     <div className={baseStyles}>
-      {icon && <span className="mr-2.5 text-lg">{icon}</span>}
+      {icon && <span className={twMerge("mr-2", size === 'sm' ? 'text-base' : 'text-lg')}>{icon}</span>}
       {text}
     </div>
   );

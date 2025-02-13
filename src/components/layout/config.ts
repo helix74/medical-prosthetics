@@ -5,6 +5,10 @@ import { type FC } from 'react';
 interface NavigationItem {
   label: string;
   path: string;
+  submenu?: Array<{
+    label: string;
+    path: string;
+  }>;
 }
 
 interface ContactLink {

@@ -33,8 +33,12 @@
   contain: size layout;
 }
 
+/* Modified to not interfere with absolute positioning */
 .contain-layout-paint {
-  contain: layout paint;
+  contain: layout;
+  contain: paint;
+  position: relative;
+  z-index: 1;
 }
 
 .contain-all {
@@ -45,6 +49,7 @@
 /* Content Visibility */
 .content-visibility-auto {
   content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
 }
 
 .content-visibility-hidden {

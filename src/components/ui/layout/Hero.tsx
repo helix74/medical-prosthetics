@@ -86,6 +86,7 @@ export const Hero = memo(function Hero({
                 icon={badge.icon}
                 text={badge.text}
                 variant="primary"
+                size="base"
                 className="mb-12"
               />
             </div>

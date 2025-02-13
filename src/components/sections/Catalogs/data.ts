@@ -16,7 +16,7 @@ export const catalogsData: CatalogsData = {
       id: 'janton-protheses',
       title: 'Catalogue Janton Prothèses',
       description: 'Découvrez notre gamme complète de solutions prothétiques Janton',
-      imageUrl: '/images/partners/janton.jpg',
+      imageUrl: '/images/partners/janton.png',
       pdfUrl: '/catalogs/Janton-Protheses-catalog.pdf',
       category: 'prosthetic'
     },
@@ -24,7 +24,7 @@ export const catalogsData: CatalogsData = {
       id: 'janton-cfab',
       title: 'Catalogue Janton CFAB',
       description: 'Solutions spécialisées CFAB par Janton',
-      imageUrl: '/images/partners/janton.jpg',
+      imageUrl: '/images/partners/janton.png',
       pdfUrl: '/catalogs/Janton-CFAB-catalog.pdf',
       category: 'prosthetic'
     },
@@ -32,7 +32,7 @@ export const catalogsData: CatalogsData = {
       id: 'janton-ortheses',
       title: 'Catalogue Janton Orthèses',
       description: 'Explorez notre gamme d\'orthèses Janton',
-      imageUrl: '/images/partners/janton.jpg',
+      imageUrl: '/images/partners/janton.png',
       pdfUrl: '/catalogs/Janton-ortheses-catalog.pdf',
       category: 'orthopedic'
     },
@@ -64,7 +64,7 @@ export const catalogsData: CatalogsData = {
       id: 'alps',
       title: 'Catalogue Alps',
       description: 'Solutions prothétiques avancées par Alps',
-      imageUrl: '/images/partners/alps.jpg',
+      imageUrl: '/images/partners/alps.png',
       pdfUrl: '/catalogs/Alps-catalog.pdf',
       category: 'prosthetic'
     },
@@ -85,11 +85,11 @@ export const catalogsData: CatalogsData = {
       category: 'orthopedic'
     },
     {
-      id: 'orthoeurope',
-      title: 'Catalogue Orthoeurope',
-      description: 'Solutions orthopédiques européennes de qualité',
-      imageUrl: '/images/partners/ortho-europe.jpg',
-      pdfUrl: '/catalogs/Orthoeurope-catalog.pdf',
+      id: 'ortho-europe-catalog',
+      title: 'Catalogue Ortho Europe',
+      description: 'Découvrez notre gamme complète de solutions orthopédiques.',
+      imageUrl: '/images/partners/ortho-europe.png',
+      pdfUrl: '/catalogs/ortho-europe.pdf',
       category: 'orthopedic'
     }
   ]

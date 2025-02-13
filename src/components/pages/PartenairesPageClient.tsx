@@ -167,9 +167,7 @@ export default memo(function PartenairesPageClient() {
 
                   <div className={twMerge(
                     'aspect-video relative mb-6',
-                    'bg-gradient-to-br from-[#187baa]/5 to-transparent',
-                    'rounded-xl overflow-hidden',
-                    'p-4'
+                    'rounded-xl overflow-hidden'
                   )}>
                     <Image
                       src={partner.logo}

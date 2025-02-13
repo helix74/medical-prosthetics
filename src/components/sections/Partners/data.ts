@@ -38,21 +38,21 @@ export const partners: Partner[] = [
   {
     id: 'ottobock',
     name: 'Ottobock',
-    logo: '/images/partners/ottobock.jpg',
+    logo: '/images/partners/ottobock.png',
     description: 'Leader mondial dans la fabrication de prothèses et d\'orthèses.',
     website: 'https://www.ottobock.com'
   },
   {
     id: 'ortho-europe',
     name: 'Ortho Europe',
-    logo: '/images/partners/ortho-europe.jpg',
+    logo: '/images/partners/ortho-europe.png',
     description: 'Spécialiste européen des solutions orthopédiques innovantes.',
     website: 'https://www.ortho-europe.fr'
   },
   {
     id: 'janton',
     name: 'Janton',
-    logo: '/images/partners/janton.jpg',
+    logo: '/images/partners/janton.png',
     description: 'Solutions orthopédiques personnalisées.',
     website: 'https://www.janton-g2m.com'
   },
@@ -66,7 +66,7 @@ export const partners: Partner[] = [
   {
     id: 'alps',
     name: 'Alps',
-    logo: '/images/partners/alps.jpg',
+    logo: '/images/partners/alps.png',
     description: 'Solutions de pointe pour le confort des patients.',
     website: 'https://easyliner.eu/fr'
   }

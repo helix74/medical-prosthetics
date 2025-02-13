@@ -50,6 +50,18 @@ const CatalogsList = memo(function CatalogsList({ catalogs }: CatalogListProps) 
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <div className={twMerge(
+                    'inline-flex items-center px-3 py-1 rounded-full',
+                    'bg-white/90 backdrop-blur-sm text-[#187baa]',
+                    'text-sm font-medium',
+                    'border border-[#187baa]/10',
+                    'shadow-sm shadow-[#187baa]/5'
+                  )}>
+                    {catalog.category === 'orthopedic' ? 'Orthopédique' : 'Prothétique'}
+                  </div>
+                </div>
               </div>
 
               <div className="p-6 border-t border-[#187baa]/10">

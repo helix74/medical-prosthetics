@@ -622,18 +622,6 @@ export default memo(function HomePageClient() {
             </div>
           </Section>
 
-          {/* Partner CTA Section */}
-          <Section>
-            <SmartCTA
-              title="Découvrez nos partenaires"
-              description="Explorez notre réseau de partenaires internationaux et découvrez les innovations qu'ils apportent au domaine de l'orthopédie."
-              primaryAction={{
-                text: "Voir tous nos partenaires",
-                href: "/partenaires"
-              }}
-            />
-          </Section>
-
           {/* Final CTA Section */}
           <Section className="mb-24">
             <SmartCTA

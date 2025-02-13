@@ -18,56 +18,61 @@ const getIconForCategory = (category: string) => {
 const CatalogueCard = memo(function CatalogueCard({ catalog }: { catalog: Catalog }) {
   return (
     <div className={twMerge(
-      'flex flex-col h-full bg-white rounded-lg shadow-lg p-6',
-      'hover:shadow-xl',
-      EFFECTS_STYLES.base.transition.base,
-      'group'
+      'h-full bg-white rounded-2xl overflow-hidden',
+      'border border-[#187baa]/10',
+      'shadow-lg shadow-[#187baa]/5',
+      'hover:shadow-xl hover:shadow-[#187baa]/10',
+      'hover:border-[#187baa]/20',
+      'transform hover:-translate-y-1',
+      EFFECTS_STYLES.base.transition.base
     )}>
-      <div className="flex flex-col flex-grow items-center">
-        <div className={twMerge(
-          'flex items-center justify-center w-16 h-16 mb-4',
-          'rounded-xl bg-[#187baa]/10 text-[#187baa]'
-        )}>
-          {getIconForCategory(catalog.category)}
+      <div className="relative h-48 w-full bg-white p-6">
+        <img
+          src={catalog.imageUrl}
+          alt={catalog.title}
+          className="object-contain w-full h-full"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent" />
+        <div className="absolute bottom-4 left-4">
+          <div className={twMerge(
+            'inline-flex items-center px-3 py-1 rounded-full',
+            'bg-white/90 backdrop-blur-sm text-[#187baa]',
+            'text-sm font-medium',
+            'border border-[#187baa]/10',
+            'shadow-sm shadow-[#187baa]/5'
+          )}>
+            {catalog.category === 'orthopedic' ? 'Orthopédique' : 'Prothétique'}
+          </div>
         </div>
-
-        <h2 className={twMerge(
+      </div>
+      <div className="p-6 border-t border-[#187baa]/10">
+        <h3 className={twMerge(
           TYPOGRAPHY_STYLES.utils.getHeading(3),
-          'text-[#187baa] text-center mb-2'
+          'text-[#187baa] mb-3',
+          'line-clamp-2 h-[3.5rem]'
         )}>
           {catalog.title}
-        </h2>
-
+        </h3>
         <p className={twMerge(
           TYPOGRAPHY_STYLES.utils.getBody('base'),
-          'text-neutral-700 text-center mb-4 flex-grow'
+          'text-neutral-600 mb-6',
+          'line-clamp-2 h-[3rem]'
         )}>
           {catalog.description}
         </p>
-
-        <div className={twMerge(
-          TYPOGRAPHY_STYLES.utils.getBody('sm'),
-          'text-neutral-600 text-center mb-4'
-        )}>
-          Catégorie: {catalog.category === 'orthopedic' ? 'Orthopédique' : 'Prothétique'}
-        </div>
-
         <a
           href={catalog.pdfUrl}
           download
           className={twMerge(
-            'inline-flex items-center justify-center px-6 py-3 w-full',
-            'bg-[#187baa] text-white font-semibold rounded-lg',
+            'inline-flex items-center justify-center w-full px-5 py-2.5',
+            'bg-[#187baa] text-white rounded-xl',
             'hover:bg-[#156a93]',
-            EFFECTS_STYLES.base.transition.base,
-            'group'
+            'shadow-md shadow-[#187baa]/10',
+            'hover:shadow-lg hover:shadow-[#187baa]/20',
+            EFFECTS_STYLES.base.transition.base
           )}
         >
-          <FaDownload className={twMerge(
-            'w-4 h-4 mr-2',
-            'group-hover:-translate-y-0.5',
-            EFFECTS_STYLES.base.transition.base
-          )} />
+          <FaBook className="w-5 h-5 mr-2" />
           Télécharger le catalogue
         </a>
       </div>
