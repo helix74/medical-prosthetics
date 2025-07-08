@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaPhone, FaEnvelope } from 'react-icons/fa';
 
 interface HeaderProps extends HTMLAttributes<HTMLElement> {
   className?: string;
@@ -73,15 +73,6 @@ export default function Header({ className, ...props }: HeaderProps) {
                 </a>
               </div>
               <div className="flex items-center gap-4">
-                <a 
-                  href="https://www.linkedin.com/company/deltamedplus" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center gap-2 text-sm hover:text-white/90 transition-colors"
-                >
-                  <FaLinkedin className="w-4 h-4" />
-                  <span className="hidden lg:inline">LinkedIn</span>
-                </a>
               </div>
             </div>
           </div>

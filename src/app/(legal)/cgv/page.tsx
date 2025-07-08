@@ -1,12 +1,13 @@
-import { Hero } from '@/components/ui/layout';
+import { Hero } from '@/components/ui/layout/Hero';
 import { CONTAINER_STYLES, TYPOGRAPHY_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import { twMerge } from 'tailwind-merge';
+import { faFileSignature } from '@fortawesome/free-solid-svg-icons';
 
 export default function CGVPage() {
   return (
     <main className="bg-white">
       <Hero
-        badge={{ icon: "📝", text: "Conditions de vente" }}
+        badge={{ icon: faFileSignature, text: "Conditions de vente" }}
         title="Conditions Générales de Vente"
         description="Les conditions qui régissent nos ventes de produits et services."
         variant="centered"

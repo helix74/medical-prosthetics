@@ -7,6 +7,8 @@ import { ANIMATION_VARIANTS, STAGGER_CHILDREN } from '@/utils/animations';
 import { EFFECTS_STYLES, TYPOGRAPHY_STYLES, CONTAINER_STYLES } from '@/theme/styles';
 import { servicesData } from '../data';
 import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHospital } from '@fortawesome/free-solid-svg-icons';
 
 export default memo(function ServicesOverview() {
   return (
@@ -28,7 +30,7 @@ export default memo(function ServicesOverview() {
               EFFECTS_STYLES.base.transition.base
             )}
           >
-            <span className="mr-2">🏥</span>
+            <FontAwesomeIcon icon={faHospital} className="mr-2 text-gray-600" />
             Services Médicaux Spécialisés
           </motion.div>
 

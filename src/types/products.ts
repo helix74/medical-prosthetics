@@ -16,6 +16,7 @@ export interface Product extends BaseEntity {
   slug: string;
   description: string;
   image: string;
+  images?: string[];
   badge?: string;
   price?: number;
   supplierId: string;

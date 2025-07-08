@@ -7,6 +7,8 @@ import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, EFFECTS_STYLES, CONTAINER_STYLES } from '@/theme/styles';
 import { servicesData } from '../data';
 import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ProcessStep = memo(function ProcessStep({ 
   step, 
@@ -82,7 +84,7 @@ export default memo(function ServicesProcess() {
                 EFFECTS_STYLES.base.transition.base
               )}
             >
-              <span className="mr-2">🔄</span>
+              <FontAwesomeIcon icon={faSyncAlt} className="mr-2 text-[#187baa]" />
               Notre Processus
             </motion.span>
 

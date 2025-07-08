@@ -10,6 +10,7 @@ import { twMerge } from 'tailwind-merge';
 import { CONTAINER_STYLES, TYPOGRAPHY_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import emailjs from '@emailjs/browser';
 import { LogoSpinner } from '@/components/ui/loading-spinner/LogoSpinner';
+import { faPhone, faEnvelope, faLocationDot, faClock } from '@fortawesome/free-solid-svg-icons';
 
 interface FormData {
   name: string;
@@ -48,7 +49,7 @@ const contactInfo = [
   {
     title: 'Horaires',
     icon: 'FaClock',
-    content: 'Lundi - Vendredi\n9:00 - 18:00',
+    content: 'Lundi - Vendredi\n8h30 - 17h00',
   },
 ];
 
@@ -189,8 +190,7 @@ const ContactForm = memo(function ContactForm() {
           )}
           placeholder="Sujet de votre message"
           {...register('subject', { 
-            required: 'Le sujet est requis',
-            minLength: { value: 5, message: 'Le sujet doit contenir au moins 5 caractères' }
+            required: 'Le sujet est requis'
           })}
           disabled={isSubmitting}
         />
@@ -279,47 +279,138 @@ const ContactForm = memo(function ContactForm() {
   );
 });
 
+// OpenStreetMap coordinates for the exact location (converted from 36°48'36.6"N 10°08'21.6"E)
+const mapCoordinates = {
+  lat: 36.81017,
+  lng: 10.139333
+};
+
+// Simple static map component using OpenStreetMap
+const MapComponent = memo(function MapComponent() {
+  // Create direct links to map services
+  const openStreetMapUrl = `https://www.openstreetmap.org/?mlat=${mapCoordinates.lat}&mlon=${mapCoordinates.lng}&zoom=16`;
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapCoordinates.lat},${mapCoordinates.lng}`;
+
+  return (
+    <div className="space-y-4">
+      {/* OpenStreetMap iframe */}
+      <div className="rounded-xl overflow-hidden shadow-lg border border-[#187baa]/10">
+        <iframe 
+          width="100%" 
+          height="400" 
+          frameBorder="0" 
+          scrolling="no" 
+          marginHeight={0} 
+          marginWidth={0} 
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoordinates.lng - 0.005}%2C${mapCoordinates.lat - 0.005}%2C${mapCoordinates.lng + 0.005}%2C${mapCoordinates.lat + 0.005}&amp;layer=mapnik&amp;marker=${mapCoordinates.lat}%2C${mapCoordinates.lng}`}
+          style={{ borderRadius: '0.75rem' }}
+        ></iframe>
+      </div>
+
+      {/* Links to map services */}
+      <div className="flex justify-center flex-wrap gap-3">
+        <a 
+          href={openStreetMapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={twMerge(
+            'flex items-center gap-2 text-sm text-[#187baa]',
+            'px-4 py-2 rounded-lg',
+            'border border-[#187baa]/20',
+            'hover:bg-[#187baa]/5 transition-colors'
+          )}
+        >
+          <Icons.FaMapMarkerAlt className="w-4 h-4" />
+          <span>Voir sur OpenStreetMap</span>
+        </a>
+        <a 
+          href={googleMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={twMerge(
+            'flex items-center gap-2 text-sm text-[#187baa]',
+            'px-4 py-2 rounded-lg',
+            'border border-[#187baa]/20',
+            'hover:bg-[#187baa]/5 transition-colors'
+          )}
+        >
+          <Icons.FaMapMarkerAlt className="w-4 h-4" />
+          <span>Voir sur Google Maps</span>
+        </a>
+      </div>
+      
+      {/* Location Card */}
+      <div className="rounded-lg border border-[#187baa]/10 p-4 bg-white shadow-sm flex items-center gap-4">
+        <div className="bg-[#187baa]/10 rounded-full p-3">
+          <Icons.FaMapMarkerAlt className="w-6 h-6 text-[#187baa]" />
+        </div>
+        <div>
+          <h4 className="font-medium text-[#187baa]">Delta Med Plus</h4>
+          <p className="text-sm text-neutral-600">9, Avenue habib Bourguiba, Bardo, Tunis</p>
+          <p className="text-xs text-neutral-500 mt-1">36°48'36.6"N 10°08'21.6"E</p>
+        </div>
+      </div>
+    </div>
+  );
+});
+
 const ContactInfo = memo(function ContactInfo() {
   return (
-    <div className={twMerge(
-      'grid grid-cols-1 sm:grid-cols-2',
-      'gap-4 lg:gap-6'
-    )}>
-      {contactInfo.map((info) => {
-        const Icon = Icons[info.icon as keyof typeof Icons];
-        return (
-          <motion.div
-            key={info.title}
-            className={twMerge(
-              'bg-white rounded-xl p-6',
-              'border border-[#187baa]/10 shadow-sm',
-              'hover:shadow-md hover:-translate-y-0.5',
-              EFFECTS_STYLES.base.transition.base
-            )}
-            variants={ANIMATION_VARIANTS.fadeInUp}
-            whileHover={{ y: -2 }}
-          >
-            <div className={twMerge(
-              'p-3 bg-[#187baa]/5 rounded-xl text-[#187baa] mb-4 inline-block',
-              EFFECTS_STYLES.base.transition.base
-            )}>
-              <Icon className="w-5 h-5" />
-            </div>
-            <h3 className={twMerge(
-              TYPOGRAPHY_STYLES.utils.getHeading(4),
-              'text-[#187baa] mb-2'
-            )}>
-              {info.title}
-            </h3>
-            <p className={twMerge(
-              TYPOGRAPHY_STYLES.utils.getBody('base'),
-              'text-neutral-600 whitespace-pre-line'
-            )}>
-              {info.content}
-            </p>
-          </motion.div>
-        );
-      })}
+    <div className="space-y-8">
+      <div className={twMerge(
+        'grid grid-cols-1 sm:grid-cols-2',
+        'gap-4 lg:gap-6 mb-8'
+      )}>
+        {contactInfo.map((info) => {
+          const Icon = Icons[info.icon as keyof typeof Icons];
+          return (
+            <motion.div
+              key={info.title}
+              className={twMerge(
+                'bg-white rounded-xl p-6',
+                'border border-[#187baa]/10 shadow-sm',
+                'hover:shadow-md hover:-translate-y-0.5',
+                EFFECTS_STYLES.base.transition.base
+              )}
+              variants={ANIMATION_VARIANTS.fadeInUp}
+              whileHover={{ y: -2 }}
+            >
+              <div className={twMerge(
+                'p-3 bg-[#187baa]/5 rounded-xl text-[#187baa] mb-4 inline-block',
+                EFFECTS_STYLES.base.transition.base
+              )}>
+                <Icon className="w-5 h-5" />
+              </div>
+              <h3 className={twMerge(
+                TYPOGRAPHY_STYLES.utils.getHeading(4),
+                'text-[#187baa] mb-2'
+              )}>
+                {info.title}
+              </h3>
+              <p className={twMerge(
+                TYPOGRAPHY_STYLES.utils.getBody('base'),
+                'text-neutral-600 whitespace-pre-line'
+              )}>
+                {info.content}
+              </p>
+            </motion.div>
+          );
+        })}
+      </div>
+      
+      {/* Google Map */}
+      <motion.div
+        variants={ANIMATION_VARIANTS.fadeInUp}
+        className="w-full"
+      >
+        <h3 className={twMerge(
+          TYPOGRAPHY_STYLES.utils.getHeading(4),
+          'text-[#187baa] mb-4'
+        )}>
+          Notre emplacement
+        </h3>
+        <MapComponent />
+      </motion.div>
     </div>
   );
 });
@@ -330,7 +421,7 @@ export default memo(function ContactPageClient() {
       <main className="relative overflow-hidden bg-white">
         {/* Hero Section */}
         <Hero
-          badge={{ icon: "📞", text: "Contactez-nous" }}
+          badge={{ icon: faPhone, text: "Contactez-nous" }}
           title="À votre service"
           description="Nous sommes à votre disposition pour répondre à vos questions et vous accompagner dans vos projets."
           size="sm"

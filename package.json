@@ -16,8 +16,11 @@
   "dependencies": {
     "@alloc/quick-lru": "^5.2.0",
     "@emailjs/browser": "^4.4.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.2.0",
+    "@react-google-maps/api": "^2.20.6",
     "autoprefixer": "^10.4.17",
     "axios": "^1.6.7",
     "framer-motion": "^11.18.2",

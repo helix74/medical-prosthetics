@@ -13,23 +13,19 @@ import { HTMLAttributes } from 'react';
 const contactInfo = [
   {
     icon: <MapPinIcon className="w-5 h-5" />,
-    text: '9, Avenue Habib Borguiba, Bardo, Tunis',
-    color: 'text-[#187baa]'
+    text: '9, Avenue Habib Borguiba, Bardo, Tunis'
   },
   {
     icon: <PhoneIcon className="w-5 h-5" />,
-    text: '+216 99 221 620',
-    color: 'text-[#187baa]'
+    text: '+216 99 221 620'
   },
   {
     icon: <EnvelopeIcon className="w-5 h-5" />,
-    text: 'direction@deltamedicalplus.tn',
-    color: 'text-[#187baa]'
+    text: 'direction@deltamedicalplus.tn'
   },
   {
     icon: <ClockIcon className="w-5 h-5" />,
-    text: 'Lun-Ven: 9h-18h',
-    color: 'text-[#187baa]'
+    text: 'Lun-Ven: 8h30-17h00'
   }
 ];
 
@@ -49,7 +45,6 @@ const footerLinks = [
       { label: 'À propos', href: '/a-propos' },
       { label: 'Partenaires', href: '/partenaires' },
       { label: 'Contact', href: '/contact' },
-      { label: 'Carrières', href: '/carrieres' },
     ],
   },
   {
@@ -57,16 +52,13 @@ const footerLinks = [
     links: [
       { label: 'Support technique', href: '/services#support' },
       { label: 'Formation', href: '/services#formation' },
-      { label: 'Documentation', href: '/documentation' },
-      { label: 'FAQ', href: '/faq' },
     ],
   },
 ];
 
 const socialLinks = [
-  { icon: <FaLinkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/company/deltamedplus', label: 'LinkedIn', color: 'hover:bg-[#187baa]' },
-  { icon: <FaFacebook className="w-5 h-5" />, href: 'https://www.facebook.com/deltamedplus', label: 'Facebook', color: 'hover:bg-[#187baa]' },
-  { icon: <FaInstagram className="w-5 h-5" />, href: 'https://www.instagram.com/deltamedplus', label: 'Instagram', color: 'hover:bg-[#187baa]' },
+  { icon: <FaFacebook className="w-5 h-5" />, href: 'https://www.facebook.com/profile.php?id=61572898898600', label: 'Facebook', color: 'hover:bg-[#187baa]' },
+  { icon: <FaInstagram className="w-5 h-5" />, href: 'https://www.instagram.com/delta.medplus', label: 'Instagram', color: 'hover:bg-[#187baa]' },
 ];
 
 interface FooterProps extends HTMLAttributes<HTMLElement> {
@@ -98,10 +90,10 @@ export default function Footer({ className, ...props }: FooterProps) {
                   <span>Delta Med Plus</span>
                 </div>
               </h2>
-              <p className="text-white/90 text-sm mb-3">Solutions Orthopédiques</p>
+              <p className="text-white/90 text-sm mb-3">{/* 'Solutions Orthopédiques' text removed */}</p>
               <p className={twMerge(
                 TYPOGRAPHY_STYLES.utils.getBody('sm'),
-                'text-white/80 max-w-md'
+                'text-white max-w-md'
               )}>
                 Leader dans la distribution de composants pour prothèses et orthèses orthopédiques en Tunisie.
               </p>
@@ -124,7 +116,7 @@ export default function Footer({ className, ...props }: FooterProps) {
                     <li key={link.label}>
                       <Link 
                         href={link.href}
-                        className="text-white/80 hover:text-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-[#187baa] rounded"
+                        className="text-white hover:text-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-[#187baa] rounded"
                       >
                         {link.label}
                       </Link>
@@ -152,7 +144,7 @@ export default function Footer({ className, ...props }: FooterProps) {
                       {info.icon}
                     </div>
                     <div>
-                      <span className={`text-${info.color} text-sm`} aria-label={info.text}>
+                      <span className="text-white text-sm" aria-label={info.text}>
                         {info.text}
                       </span>
                     </div>
@@ -165,9 +157,9 @@ export default function Footer({ className, ...props }: FooterProps) {
 
         {/* Bottom Bar */}
         <div className="pt-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
             {/* Social Links */}
-            <div className="flex items-center gap-4" aria-label="Social media links">
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-0" aria-label="Social media links">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -182,21 +174,27 @@ export default function Footer({ className, ...props }: FooterProps) {
               ))}
             </div>
 
+            {/* Foxify Credit */}
+            <div className="flex items-center text-white/60 text-sm sm:text-lg whitespace-nowrap mb-4 sm:mb-0">
+              <span className="flex items-center align-middle">Designed by</span>
+              <Image src="/images/logo/foxify_logo.svg" alt="Foxify Logo" width={100} height={100} className="ml-2 align-middle" style={{ marginTop: '2px' }} />
+            </div>
+
             {/* Legal Links */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-              <span className="text-white/60 text-sm">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+              <span className="text-white/60 text-xs sm:text-sm whitespace-nowrap mb-2 sm:mb-0">
                 © {new Date().getFullYear()} Delta Med Plus
               </span>
-              <nav className="flex items-center gap-6" aria-label="Legal links">
+              <nav className="flex flex-wrap justify-center sm:flex-nowrap items-center gap-3 sm:gap-6" aria-label="Legal links">
                 {[
                   { label: 'Mentions légales', href: '/mentions-legales' },
-                  { label: 'Confidentialité', href: '/confidentialite' },
+                  { label: 'Confidentialité', href: '/confidentialité' },
                   { label: 'CGV', href: '/cgv' }
                 ].map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="text-white/60 hover:text-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-[#187baa] rounded"
+                    className="text-white/60 hover:text-white text-xs sm:text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-[#187baa] rounded whitespace-nowrap"
                   >
                     {link.label}
                   </Link>

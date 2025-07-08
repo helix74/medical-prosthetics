@@ -1,3 +1,5 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
 export interface Spec {
   label: string;
   value: string;
@@ -6,11 +8,11 @@ export interface Spec {
 export interface Feature {
   title: string;
   description: string;
-  icon: string;
-  specs: Spec[];
-  color: string;
-  iconColor: string;
+  icon: IconProp | string;
   link: string;
+  specs: Spec[];
+  color?: string;
+  iconColor?: string;
 }
 
 export interface FeatureCardProps {

@@ -5,22 +5,24 @@ import { motion } from 'framer-motion';
 import { ANIMATION_VARIANTS, TRANSITION_PRESETS, STAGGER_CHILDREN } from '@/utils/animations';
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, EFFECTS_STYLES, CONTAINER_STYLES, GRID_STYLES } from '@/theme/styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBolt, faBullseye, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 const reasons = [
   {
     title: "Approvisionnement rapide & à moindre cout",
     description: "Garantir une livraison efficace des produits afin de réduire les délais d'importation au maximum et offrir des solutions compétitives grâce à une gestion optimisée des prix.",
-    icon: "⚡"
+    icon: <FontAwesomeIcon icon={faBolt} style={{ color: '#187baa' }} />
   },
   {
     title: "L'expertise",
     description: "Les fondateurs de Delta Med plus sont bien positionnés pour mettre en oeuvre des stratégies d'amélioration continue des produits et des services, ayant un engagement pour l'excellence menant à une meilleure satisfaction double centre-patient.",
-    icon: "🎯"
+    icon: <FontAwesomeIcon icon={faBullseye} style={{ color: '#187baa' }} />
   },
   {
     title: "L'accès à l'international",
     description: "Fournir des articles issus de fournisseurs internationaux directement disponibles en Tunisie.",
-    icon: "🌍"
+    icon: <FontAwesomeIcon icon={faGlobe} style={{ color: '#187baa' }} />
   }
 ];
 

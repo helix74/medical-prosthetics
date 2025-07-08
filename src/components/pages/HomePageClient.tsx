@@ -12,7 +12,22 @@ import Image from 'next/image';
 import { Badge } from '@/components/ui/base/Badge';
 import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
 import { LogoSpinner } from '@/components/ui/loading-spinner/LogoSpinner';
-import { FaBook } from 'react-icons/fa';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { 
+  faStar, 
+  faBoxes, 
+  faWrench, 
+  faBook, 
+  faHandshake,
+  faBookOpen,
+  faArrowRight,
+  faFileAlt,
+  faPhone,
+  faUsers,
+  faChevronLeft,
+  faChevronRight
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CATALOGS } from '@/components/sections/Catalogs/data';
 
 // Loading components
@@ -64,11 +79,16 @@ const Section = memo(function Section({
   withContainer?: boolean;
   title?: string;
   description?: string;
-  badge?: { icon: string; text: string; }
+  badge?: { icon: IconProp; text: string; }
   isHero?: boolean;
 }) {
   const content = (
-    <div className={twMerge('relative isolate overflow-hidden', className)}>
+    <div className={twMerge(
+      'relative isolate overflow-hidden', 
+      // Only apply extra padding to non-hero sections
+      !isHero && 'py-8 md:py-12 lg:py-16',
+      className
+    )}>
       <BackgroundLayers variant="minimal">
         <div className="absolute inset-0 bg-gradient-to-b from-[#187baa]/5 via-transparent to-transparent" />
       </BackgroundLayers>
@@ -76,18 +96,18 @@ const Section = memo(function Section({
       <div className="relative z-10">
         {/* Header if title exists */}
         {title && (
-          <div className="text-center mb-12 relative">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16 relative">
             {badge && (
               <div className={twMerge(
-                'inline-flex items-center px-6 py-3 rounded-full mb-8',
+                'inline-flex items-center px-4 py-2 md:px-6 md:py-3 rounded-full mb-6 md:mb-8 lg:mb-12',
                 'bg-gradient-to-r from-[#187baa]/10 to-[#187baa]/5',
                 'border border-[#187baa]/20',
                 'backdrop-blur-sm',
                 'hover:from-[#187baa]/15 hover:to-[#187baa]/10',
                 EFFECTS_STYLES.base.transition.base
               )}>
-                <span className="mr-2">{badge.icon}</span>
-                <span className="text-[#187baa] font-medium">{badge.text}</span>
+                <FontAwesomeIcon icon={badge.icon} className="mr-2 text-[#187baa]" />
+                <span className="text-[#187baa] font-medium text-sm md:text-base">{badge.text}</span>
               </div>
             )}
 
@@ -96,38 +116,33 @@ const Section = memo(function Section({
               isHero 
                 ? 'bg-gradient-to-r from-[#187baa] to-[#156a93] bg-clip-text text-transparent font-bold'
                 : 'text-[#187baa]/90',
-              'mb-4'
+              'mb-3 md:mb-4'
             )}>
               {title}
             </h2>
             {description && (
               <p className={twMerge(
                 TYPOGRAPHY_STYLES.utils.getBody('lg'),
-                'text-neutral-700/90 max-w-2xl mx-auto text-center',
-                'leading-relaxed'
+                'text-neutral-600/90 mt-2',
+                'leading-relaxed',
+                'max-w-md md:max-w-xl lg:max-w-2xl mx-auto',
+                'text-sm md:text-base lg:text-lg'
               )}>
                 {description}
               </p>
             )}
           </div>
         )}
-        {children}
+
+        {/* Main Content */}
+        {withContainer ? (
+          <div className={CONTAINER_STYLES.variants.default}>
+            {children}
+          </div>
+        ) : children}
       </div>
     </div>
   );
-
-  if (withContainer) {
-    return (
-      <section className={twMerge(
-        'relative z-10',
-        'mb-16 last:mb-0'
-      )}>
-        <div className={CONTAINER_STYLES.variants.default}>
-          {content}
-        </div>
-      </section>
-    );
-  }
 
   return content;
 });
@@ -174,11 +189,23 @@ const SmartCTA = memo(function SmartCTA({
   secondaryAction?: { text: string; href: string; };
   className?: string;
 }) {
+  // Helper function to determine which icon to use based on the action text
+  const getActionIcon = (text: string): IconProp => {
+    const lowerText = text.toLowerCase();
+    if (lowerText.includes('contact') || lowerText.includes('parl')) return faPhone;
+    if (lowerText.includes('produit') || lowerText.includes('voir')) return faBoxes;
+    if (lowerText.includes('catalogue') || lowerText.includes('télécharger')) return faBook;
+    if (lowerText.includes('service')) return faWrench;
+    if (lowerText.includes('nous') || lowerText.includes('savoir')) return faUsers;
+    return faArrowRight;
+  };
+
   return (
     <div className={twMerge(
       'relative overflow-hidden rounded-3xl',
       'bg-gradient-to-br from-[#187baa] via-[#187baa] to-[#156a93]',
-      'px-8 py-16 sm:px-16 sm:py-20',
+      'px-6 py-10 sm:px-8 md:px-12 lg:px-16',
+      'sm:py-12 md:py-16 lg:py-20',
       'text-center shadow-xl shadow-[#187baa]/20',
       'border border-white/10',
       className
@@ -186,24 +213,27 @@ const SmartCTA = memo(function SmartCTA({
       <div className="relative z-10 max-w-2xl mx-auto">
         <h2 className={twMerge(
           TYPOGRAPHY_STYLES.utils.getHeading(2),
-          'text-white font-bold mb-6',
+          'text-white font-bold mb-4 sm:mb-6',
+          'text-2xl sm:text-3xl md:text-4xl',
           'bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent'
         )}>
           {title}
         </h2>
         <p className={twMerge(
           TYPOGRAPHY_STYLES.utils.getBody('lg'),
-          'text-white/90 mb-10',
+          'text-white/90 mb-6 sm:mb-8 md:mb-10',
+          'text-sm sm:text-base',
           'leading-relaxed'
         )}>
           {description}
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Link
             href={primaryAction.href}
             className={twMerge(
               'inline-flex items-center justify-center',
-              'px-8 py-4 rounded-xl',
+              'px-6 py-3 sm:px-8 sm:py-4 rounded-xl',
+              'text-sm sm:text-base',
               'bg-white text-[#187baa] font-semibold',
               'shadow-lg shadow-black/5',
               'hover:bg-[#187baa]/10 hover:text-white',
@@ -212,6 +242,7 @@ const SmartCTA = memo(function SmartCTA({
               'w-full sm:w-auto'
             )}
           >
+            <FontAwesomeIcon icon={getActionIcon(primaryAction.text)} className="mr-2" />
             {primaryAction.text}
           </Link>
           {secondaryAction && (
@@ -219,7 +250,8 @@ const SmartCTA = memo(function SmartCTA({
               href={secondaryAction.href}
               className={twMerge(
                 'inline-flex items-center justify-center',
-                'px-8 py-4 rounded-xl',
+                'px-6 py-3 sm:px-8 sm:py-4 rounded-xl',
+                'text-sm sm:text-base',
                 'bg-white/10 text-white font-semibold',
                 'border border-white/20',
                 'hover:bg-white/20',
@@ -228,6 +260,7 @@ const SmartCTA = memo(function SmartCTA({
                 'w-full sm:w-auto'
               )}
             >
+              <FontAwesomeIcon icon={getActionIcon(secondaryAction.text)} className="mr-2" />
               {secondaryAction.text}
             </Link>
           )}
@@ -331,7 +364,7 @@ const HorizontalProductScroll = memo(function HorizontalProductScroll({
             )}
             aria-label="Scroll left"
           >
-            ←
+            <FontAwesomeIcon icon={faChevronLeft} />
           </button>
         )}
         {showRightButton && (
@@ -349,7 +382,7 @@ const HorizontalProductScroll = memo(function HorizontalProductScroll({
             )}
             aria-label="Scroll right"
           >
-            →
+            <FontAwesomeIcon icon={faChevronRight} />
           </button>
         )}
 
@@ -413,7 +446,7 @@ const HorizontalCatalogScroll = memo(function HorizontalCatalogScroll() {
         )}
         aria-label="Scroll left"
       >
-        ←
+        <FontAwesomeIcon icon={faChevronLeft} />
       </button>
       <button
         onClick={() => handleScroll('right')}
@@ -429,7 +462,7 @@ const HorizontalCatalogScroll = memo(function HorizontalCatalogScroll() {
         )}
         aria-label="Scroll right"
       >
-        →
+        <FontAwesomeIcon icon={faChevronRight} />
       </button>
 
       {/* Catalog List */}
@@ -499,7 +532,7 @@ const HorizontalCatalogScroll = memo(function HorizontalCatalogScroll() {
                       EFFECTS_STYLES.base.transition.base
                     )}
                   >
-                    <FaBook className="w-5 h-5 mr-2" />
+                    <FontAwesomeIcon icon={faBook} className="w-5 h-5 mr-2" />
                     Télécharger le catalogue
                   </a>
                 </div>
@@ -529,7 +562,7 @@ export default memo(function HomePageClient() {
 
           {/* Why Choose Us Section */}
           <Section
-            badge={{ icon: "✨", text: "Pourquoi nous choisir" }}
+            badge={{ icon: faStar, text: "Pourquoi nous choisir" }}
             title="Notre Engagement"
             description="Delta Med Plus s'engage à être votre partenaire de confiance en fournissant des solutions orthopédiques innovantes et un service d'excellence."
           >
@@ -540,7 +573,7 @@ export default memo(function HomePageClient() {
           <Section
             title="Nos Produits"
             description="Découvrez notre gamme complète de solutions orthopédiques innovantes."
-            badge={{ icon: "🏥", text: "Produits" }}
+            badge={{ icon: faBoxes, text: "Produits" }}
           >
             <HorizontalProductScroll
               products={MOCK_PRODUCTS}
@@ -566,7 +599,7 @@ export default memo(function HomePageClient() {
 
           {/* Services Section */}
           <Section
-            badge={{ icon: "🛠️", text: "Nos services" }}
+            badge={{ icon: faWrench, text: "Nos services" }}
             title="Services Professionnels"
             description="Un accompagnement complet pour votre réussite."
           >
@@ -591,7 +624,7 @@ export default memo(function HomePageClient() {
 
           {/* Catalogue Section */}
           <Section
-            badge={{ icon: "📚", text: "Catalogues" }}
+            badge={{ icon: faBook, text: "Catalogues" }}
             title="Nos Catalogues"
             description="Téléchargez nos catalogues détaillés pour découvrir notre gamme complète de produits orthopédiques."
           >
@@ -612,7 +645,7 @@ export default memo(function HomePageClient() {
 
           {/* Partners Section */}
           <Section
-            badge={{ icon: "🤝", text: "Partenaires de confiance" }}
+            badge={{ icon: faHandshake, text: "Partenaires de confiance" }}
             title="Collaborations Internationales"
             description="Nous collaborons avec les leaders mondiaux de l'orthopédie pour vous offrir les meilleures solutions prothétiques."
             className="bg-gradient-to-b from-white to-[#187baa]/5"

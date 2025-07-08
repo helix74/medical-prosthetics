@@ -1,12 +1,13 @@
-import { Hero } from '@/components/ui/layout';
+import { Hero } from '@/components/ui/layout/Hero';
 import { CONTAINER_STYLES, TYPOGRAPHY_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import { twMerge } from 'tailwind-merge';
+import { faLock, faShield } from '@fortawesome/free-solid-svg-icons';
 
 export default function ConfidentialitePage() {
   return (
     <main className="bg-white">
       <Hero
-        badge={{ icon: "🔒", text: "Protection des données" }}
+        badge={{ icon: faLock, text: "Protection des données" }}
         title="Politique de Confidentialité"
         description="Comment nous protégeons vos données personnelles et respectons votre vie privée."
         variant="centered"

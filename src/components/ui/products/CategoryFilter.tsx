@@ -5,27 +5,47 @@ import { motion } from 'framer-motion';
 import { useState, memo } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faMagnifyingGlass, 
+  faPersonWalking, 
+  faBriefcaseMedical, 
+  faScrewdriverWrench, 
+  faBoxOpen,
+  faLeaf,
+  faWheelchair
+} from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { ReactNode } from 'react';
 
 type CategoryValue = string;
 
 interface Category {
   value: CategoryValue;
   label: string;
-  icon: string;
+  icon: ReactNode;
 }
 
-const CATEGORY_ICONS: Record<string, string> = {
-  protheses: '🦾',
-  ortheses: '🦿',
-  composants: '⚡',
+// Updated icons with more professional ones
+const CATEGORY_ICONS: Record<string, IconProp> = {
+  protheses: faPersonWalking,
+  ortheses: faBriefcaseMedical,
+  composants: faScrewdriverWrench,
 };
 
 const CATEGORIES: Category[] = [
-  { value: 'all', label: 'Tous les produits', icon: '🔍' },
+  { 
+    value: 'all', 
+    label: 'Tous les produits', 
+    icon: <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[#187baa]" /> 
+  },
   ...PRODUCT_CATEGORIES.map(category => ({
     value: category.id,
     label: category.name,
-    icon: CATEGORY_ICONS[category.id] || '📦'
+    icon: <FontAwesomeIcon 
+      icon={CATEGORY_ICONS[category.id] || faBoxOpen} 
+      className="text-[#187baa]" 
+    />
   }))
 ];
 
@@ -87,7 +107,9 @@ const CategoryFilter = memo(({
               whileTap={{ scale: 0.95 }}
             >
               <span className="flex items-center gap-2">
-                <span className="text-lg">{category.icon}</span>
+                <span className={`text-lg ${showEffects ? 'text-white' : 'text-[#187baa]'}`}>
+                  {category.icon}
+                </span>
                 {category.label}
               </span>
 

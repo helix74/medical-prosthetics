@@ -17,7 +17,7 @@ export const milestones: Milestone[] = [
     description: 'Développement de partenariats européens'
   },
   {
-    year: '2023',
+    year: '2025',
     title: 'Lancement de Delta Med Plus',
     description: 'Extension dédiée à la distribution'
   }
@@ -55,18 +55,11 @@ export const team: TeamMember[] = [
     description: 'Maître appareilleur avec plus de 20 ans d\'expérience.'
   },
   {
-    name: 'Khouloud Habibi',
-    role: 'Directrice Marketing',
-    image: '/images/team/Khouloud.png',
-    expertise: 'Marketing et Communication',
-    description: 'Experte en marketing digital et communication avec une passion pour l\'innovation médicale.'
-  },
-  {
     name: 'Imed Djobbi',
     role: 'Co-fondateur',
     image: '/images/team/Imed.png',
     expertise: 'Maître appareilleur',
-    description: 'Expert en orthopédie et gestion de projets médicaux.'
+    description: 'Maitre appareilleur confirmé fort d\'une expérience significative dans le domaine d\'appareillage orthopédiques.'
   }
 ];
 
@@ -82,20 +75,19 @@ export const aboutUsData = {
     title: "Delta Med Plus",
     description: "Delta Med Plus est une extension indépendante du centre Delta Orthopédie, leader dans le domaine de la fabrication de prothèses et orthèses orthopédiques en Tunisie. Forte de son expertise et de son expérience reconnue, Delta Orthopédie a choisi d'élargir sa position en créant Delta Med Plus, une entité dédiée à la distribution de composantes prothétiques de haute qualité.",
     additionalInfo: [
-      "Delta Med Plus se positionne comme un partenaire solide pour les centres d'appareillage et les experts du métier, leur offrant des solutions fiables et innovantes pour améliorer la qualité de vie des patients.",
-      "La société est représentée par Mme Chérifa Soltani et M. Imed Djobbi, fondateurs de Delta Orthopédie. Ces deux maîtres appareilleurs, forts de plusieurs années d'expérience dans les secteurs public et privé, apportent une expertise unique et un engagement profond envers l'excellence et la satisfaction client."
+      "Delta Med Plus se positionne comme un partenaire solide pour les centres d'appareillage et les experts du métier, leur offrant des solutions fiables et innovantes pour améliorer la qualité de vie des patients."
     ]
   },
 
   history: {
     badge: "Notre histoire",
-    title: "Une histoire d'excellence et d'innovation",
+    title: "Une histoire d'excellence",
     description: "Depuis notre création, nous nous sommes engagés à fournir des solutions orthopédiques de haute qualité.",
     timeline: [
       {
         year: "2010",
         title: "Création de Delta Orthopédie",
-        description: "Fondation du centre spécialisé dans la fabrication de prothèses et orthèses."
+        description: "Fondation du centre spécialisé dans la fabrication de prothèses et orthèses orthopédiques."
       },
       {
         year: "2015",
@@ -103,7 +95,7 @@ export const aboutUsData = {
         description: "Développement de partenariats internationaux et élargissement de la gamme de produits."
       },
       {
-        year: "2023",
+        year: "2025",
         title: "Lancement de Delta Med Plus",
         description: "Création d'une entité dédiée à la distribution de composantes prothétiques."
       }
@@ -159,15 +151,9 @@ export const aboutUsData = {
         image: "/images/team/Cherifa.png"
       },
       {
-        name: "Mme Khouloud Habibi",
-        role: "Directrice Marketing",
-        description: "Experte en marketing digital et communication avec une passion pour l'innovation médicale.",
-        image: "/images/team/Khouloud.png"
-      },
-      {
         name: "M. Imed Djobbi",
         role: "Co-fondateur",
-        description: "Expert en orthopédie et gestion de projets médicaux.",
+        description: "Maitre appareilleur confirmé fort d'une expérience significative dans le domaine d'appareillage orthopédiques.",
         image: "/images/team/Imed.png"
       }
     ]

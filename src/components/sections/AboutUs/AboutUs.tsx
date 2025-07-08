@@ -7,22 +7,24 @@ import { Section } from '@/components/ui/layout';
 import { FADE_IN_UP, STAGGER_CHILDREN } from '@/utils/animations';
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, EFFECTS_STYLES, CONTAINER_STYLES, GRID_STYLES } from '../../../theme/styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAward, faHandshake, faCertificate } from '@fortawesome/free-solid-svg-icons';
 
 const FEATURES = [
   {
-    icon: "🌟",
     title: "Expertise",
-    description: "Plus de 20 ans d'expérience dans le domaine orthopédique"
+    description: "Plus de 20 ans d'expérience dans le domaine orthopédique",
+    icon: <FontAwesomeIcon icon={faAward} />
   },
   {
-    icon: "🤝",
     title: "Service Client",
-    description: "Accompagnement personnalisé et support technique spécialisé"
+    description: "Accompagnement personnalisé et support technique spécialisé",
+    icon: <FontAwesomeIcon icon={faHandshake} />
   },
   {
-    icon: "📦",
     title: "Qualité",
-    description: "Produits certifiés répondant aux normes internationales"
+    description: "Produits certifiés répondant aux normes internationales",
+    icon: <FontAwesomeIcon icon={faCertificate} />
   }
 ];
 

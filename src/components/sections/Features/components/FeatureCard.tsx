@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { FADE_IN_UP } from '@/utils/animations';
-import Image from 'next/image';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import { FeatureCardProps } from '../types';
 import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import Image from 'next/image';
 
 export const FeatureCard = ({ feature }: FeatureCardProps) => {
   return (
@@ -27,13 +29,17 @@ export const FeatureCard = ({ feature }: FeatureCardProps) => {
             'transition-all duration-300',
             'group-hover:shadow-md group-hover:scale-110'
           )}>
-            <Image
-              src={feature.icon}
-              alt={feature.title}
-              width={24}
-              height={24}
-              className="w-6 h-6 text-gray-700"
-            />
+            {typeof feature.icon === 'string' ? (
+              <Image 
+                src={feature.icon} 
+                alt={feature.title} 
+                width={24} 
+                height={24} 
+                className="w-6 h-6"
+              />
+            ) : (
+              <FontAwesomeIcon icon={feature.icon} className="w-6 h-6 text-gray-700" />
+            )}
           </div>
 
           {/* Content */}

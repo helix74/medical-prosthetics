@@ -1,6 +1,6 @@
 'use client';
 
-import { type FC } from 'react';
+import { type FC, useState, useMemo } from 'react';
 import { LazyMotion, domAnimation, m as motion } from 'framer-motion';
 import { ANIMATION_VARIANTS } from '@/utils/animations';
 import { twMerge } from 'tailwind-merge';
@@ -10,18 +10,45 @@ import ProductFilters from '@/components/ui/products/ProductFilters';
 import ProductList from '@/components/ui/products/ProductList';
 import { MOCK_PRODUCTS, MOCK_SUPPLIERS } from '@/data/mock';
 import { SmartCTA } from '@/components/ui/cta';
+import { faBoxes } from '@fortawesome/free-solid-svg-icons';
 
 const ProductsPageClient: FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedSupplier, setSelectedSupplier] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
   const suppliersRecord = MOCK_SUPPLIERS.reduce((acc, supplier) => {
     acc[supplier.id] = supplier;
     return acc;
   }, {} as Record<string, any>);
 
+  const filteredProducts = useMemo(() => {
+    return MOCK_PRODUCTS.filter(product => {
+      // Filter by category
+      if (selectedCategory && product.categoryId !== selectedCategory) {
+        return false;
+      }
+      
+      // Filter by supplier
+      if (selectedSupplier && product.supplierId !== selectedSupplier) {
+        return false;
+      }
+      
+      // Filter by search term
+      if (searchTerm && !product.name.toLowerCase().includes(searchTerm.toLowerCase()) && 
+          !product.description.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return false;
+      }
+      
+      return true;
+    });
+  }, [selectedCategory, selectedSupplier, searchTerm]);
+
   return (
     <LazyMotion features={domAnimation}>
       <main className="relative overflow-hidden bg-white">
         <Hero
-          badge={{ icon: "🛍️", text: "Nos Produits" }}
+          badge={{ icon: faBoxes, text: "Nos Produits" }}
           title="Nos Produits"
           description="Découvrez notre gamme complète de solutions orthopédiques innovantes"
           size="sm"
@@ -36,14 +63,14 @@ const ProductsPageClient: FC = () => {
             )}>
               <ProductFilters
                 suppliers={MOCK_SUPPLIERS}
-                selectedCategory={null}
-                selectedSupplier={null}
-                onCategoryChangeAction={() => {}}
-                onSupplierChangeAction={() => {}}
-                onSearchChangeAction={() => {}}
+                selectedCategory={selectedCategory}
+                selectedSupplier={selectedSupplier}
+                onCategoryChangeAction={setSelectedCategory}
+                onSupplierChangeAction={setSelectedSupplier}
+                onSearchChangeAction={setSearchTerm}
               />
               <ProductList
-                products={MOCK_PRODUCTS}
+                products={filteredProducts}
                 suppliers={suppliersRecord}
                 isLoading={false}
                 hasMore={false}

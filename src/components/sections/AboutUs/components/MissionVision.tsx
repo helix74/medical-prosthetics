@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 import { FADE_IN_UP, STAGGER_CHILDREN } from '@/utils/animations';
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, CONTAINER_STYLES, EFFECTS_STYLES } from '@/theme/styles';
+import { aboutUsData } from '../data';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBullseye } from '@fortawesome/free-solid-svg-icons';
 
 const MissionVision = memo(function MissionVision() {
   return (
@@ -26,7 +29,7 @@ const MissionVision = memo(function MissionVision() {
             'hover:bg-[#187baa]/20'
           )}
         >
-          <span className="mr-2">🎯</span>
+          <FontAwesomeIcon icon={faBullseye} className="mr-2 text-[#187baa]" />
           Notre Mission
         </motion.span>
 

@@ -10,14 +10,14 @@ import { Product, Supplier } from '@/types/products';
 interface ProductDetailsProps {
   product: Product;
   supplier: Supplier;
-  onContactClick: () => void;
+  onContactClickAction: () => void;
   className?: string;
 }
 
 export default function ProductDetails({
   product,
   supplier,
-  onContactClick,
+  onContactClickAction,
   className = ''
 }: ProductDetailsProps) {
   return (
@@ -66,7 +66,7 @@ export default function ProductDetails({
             variant="primary"
             size="lg"
             className="w-full"
-            onClick={onContactClick}
+            onClick={onContactClickAction}
           >
             Nous contacter
           </Button>

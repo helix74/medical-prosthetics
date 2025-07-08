@@ -6,6 +6,8 @@ import { ANIMATION_VARIANTS, TRANSITION_PRESETS, STAGGER_CHILDREN } from '@/util
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, CONTAINER_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import { aboutUsData } from '../data';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
 
 const AboutHeader = memo(function AboutHeader() {
   const { header } = aboutUsData;
@@ -29,7 +31,7 @@ const AboutHeader = memo(function AboutHeader() {
             'hover:bg-[#187baa]/20'
           )}
         >
-          <span className="mr-2">🏢</span>
+          <FontAwesomeIcon icon={faBuilding} className="mr-2 text-[#187baa]" />
           {header.badge}
         </motion.span>
         

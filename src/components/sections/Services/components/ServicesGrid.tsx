@@ -6,12 +6,14 @@ import { ANIMATION_VARIANTS } from '@/utils/animations';
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faTools, faGraduationCap, faHeadset } from '@fortawesome/free-solid-svg-icons';
 
 const services = [
   {
     title: "Consultation Technique",
     description: "Expertise personnalisée pour vos besoins spécifiques",
-    icon: "🔍",
+    icon: <FontAwesomeIcon icon={faSearch} className="text-[#187baa]" />,
     features: [
       "Analyse des besoins",
       "Recommandations sur mesure",
@@ -21,7 +23,7 @@ const services = [
   {
     title: "Support Technique",
     description: "Assistance continue pour vos équipements",
-    icon: "🛠️",
+    icon: <FontAwesomeIcon icon={faTools} className="text-[#187baa]" />,
     features: [
       "Maintenance préventive",
       "Réparations rapides",
@@ -31,7 +33,7 @@ const services = [
   {
     title: "Formation",
     description: "Programmes de formation adaptés",
-    icon: "📚",
+    icon: <FontAwesomeIcon icon={faGraduationCap} className="text-[#187baa]" />,
     features: [
       "Ateliers pratiques",
       "Documentation détaillée",
@@ -41,7 +43,7 @@ const services = [
   {
     title: "Service Après-Vente",
     description: "Suivi et maintenance de qualité",
-    icon: "🤝",
+    icon: <FontAwesomeIcon icon={faHeadset} className="text-[#187baa]" />,
     features: [
       "Garantie étendue",
       "Pièces de rechange",

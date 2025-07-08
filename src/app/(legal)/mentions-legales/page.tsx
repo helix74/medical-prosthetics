@@ -1,12 +1,13 @@
-import { Hero } from '@/components/ui/layout';
+import { Hero } from '@/components/ui/layout/Hero';
 import { CONTAINER_STYLES, TYPOGRAPHY_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import { twMerge } from 'tailwind-merge';
+import { faFileInvoice } from '@fortawesome/free-solid-svg-icons';
 
 export default function MentionsLegalesPage() {
   return (
     <main className="bg-white">
       <Hero
-        badge={{ icon: "📋", text: "Informations légales" }}
+        badge={{ icon: faFileInvoice, text: "Informations légales" }}
         title="Mentions Légales"
         description="Informations légales concernant Delta Med Plus et l'utilisation de notre site web."
         variant="centered"
@@ -59,10 +60,7 @@ export default function MentionsLegalesPage() {
                 TYPOGRAPHY_STYLES.utils.getBody('lg'),
                 'text-neutral-700/90 leading-relaxed'
               )}>
-                Ce site est hébergé par Vercel Inc.<br />
-                440 N Barranca Ave #4133<br />
-                Covina, CA 91723<br />
-                États-Unis
+                Delta Med Plus
               </p>
             </div>
           </section>

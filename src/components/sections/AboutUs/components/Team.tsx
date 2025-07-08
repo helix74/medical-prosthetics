@@ -8,6 +8,9 @@ import { TYPOGRAPHY_STYLES, CONTAINER_STYLES, EFFECTS_STYLES, GRID_STYLES } from
 import { aboutUsData } from '../data';
 import OptimizedImage from '@/components/ui/OptimizedImage';
 import { IMAGE_SIZES } from '@/theme/responsive';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 export default memo(function Team() {
   const { team } = aboutUsData;
@@ -33,7 +36,7 @@ export default memo(function Team() {
               'hover:bg-[#187baa]/20'
             )}
           >
-            <span className="mr-2">👥</span>
+            <FontAwesomeIcon icon={faUsers} className="mr-2 text-[#187baa]" />
             {team.badge}
           </motion.span>
           
@@ -61,7 +64,7 @@ export default memo(function Team() {
         {/* Team Members */}
         <motion.div 
           variants={STAGGER_CHILDREN}
-          className={GRID_STYLES.responsive.threeColumn}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center"
         >
           {team.members.map((member, index) => (
             <motion.div
@@ -69,8 +72,8 @@ export default memo(function Team() {
               variants={ANIMATION_VARIANTS.fadeInUp}
               transition={TRANSITION_PRESETS.spring}
               className={twMerge(
-                'text-center py-8 sm:py-12',
-                'group'
+                'text-center w-full max-w-md',
+                'flex flex-col items-center'
               )}
               custom={index}
             >
@@ -105,14 +108,13 @@ export default memo(function Team() {
               </h3>
               <p className={twMerge(
                 TYPOGRAPHY_STYLES.utils.getBody('base'),
-                'text-[#187baa] mb-4',
-                'text-center mx-auto'
+                'text-[#187baa] mb-4'
               )}>
                 {member.role}
               </p>
               <p className={twMerge(
                 TYPOGRAPHY_STYLES.utils.getBody('base'),
-                'text-neutral-700'
+                'text-neutral-700 max-w-sm mx-auto text-center'
               )}>
                 {member.description}
               </p>

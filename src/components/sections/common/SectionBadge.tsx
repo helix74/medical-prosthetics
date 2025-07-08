@@ -1,23 +1,27 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { m } from 'framer-motion';
 import { FADE_IN_UP } from '@/utils/animations';
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, EFFECTS_STYLES } from '@/theme/styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface SectionBadgeProps {
-  icon: string;
+  icon: string | IconProp | ReactNode;
   text: string;
   certification?: string;
   className?: string;
+  isIconFontAwesome?: boolean;
 }
 
 export const SectionBadge = memo(function SectionBadge({ 
   icon, 
   text,
   certification,
-  className 
+  className,
+  isIconFontAwesome = false
 }: SectionBadgeProps) {
   return (
     <m.div 
@@ -36,7 +40,11 @@ export const SectionBadge = memo(function SectionBadge({
       )}
       variants={FADE_IN_UP}
     >
-      <span className="mr-2">{icon}</span>
+      {isIconFontAwesome ? (
+        <FontAwesomeIcon icon={icon as IconProp} className="mr-2 text-[#187baa]" />
+      ) : (
+        <span className="mr-2">{icon as ReactNode}</span>
+      )}
       {text}
       {certification && (
         <span className="ml-2 px-2 py-0.5 bg-[#187baa]/20 rounded-full text-xs">

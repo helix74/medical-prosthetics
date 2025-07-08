@@ -6,6 +6,9 @@ import { components } from '@/theme';
 import { FADE_IN_UP, STAGGER_CHILDREN } from '@/utils/animations';
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, EFFECTS_STYLES, CONTAINER_STYLES } from '@/theme/styles';
+import { servicesData } from '../data';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
 const TESTIMONIALS = [
   {
@@ -58,8 +61,8 @@ const Testimonials = memo(function Testimonials() {
                 EFFECTS_STYLES.base.transition.base
               )}
             >
-              <span className="mr-2">💬</span>
-              Témoignages
+              <FontAwesomeIcon icon={faCommentDots} className="mr-2 text-[#187baa]" />
+              Témoignages Clients
             </m.span>
 
             <m.h3

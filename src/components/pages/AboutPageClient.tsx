@@ -16,6 +16,8 @@ import {
 } from '@/components/sections/AboutUs';
 import { aboutUsData, values } from '@/components/sections/AboutUs/data';
 import dynamic from 'next/dynamic';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faHandshake, faLightbulb, faHeart, faTruck, faGlobe, faBolt, faBuilding } from '@fortawesome/free-solid-svg-icons';
 
 const SmartCTA = dynamic(() => import('@/components/ui/cta/SmartCTA'), {
   ssr: false
@@ -51,13 +53,24 @@ const SectionWrapper = memo(function SectionWrapper({ children, className = "" }
   );
 });
 
+const getIcon = (title: string) => {
+  switch (title) {
+    case 'Excellence': return faStar;
+    case 'Confiance': return faHandshake;
+    case 'Innovation': return faLightbulb;
+    case 'Approvisionnement rapide': return faTruck;
+    case 'L\'accès à l\'international': return faGlobe;
+    default: return faHeart;
+  }
+};
+
 export default memo(function AboutPageClient() {
   return (
     <LazyMotion features={domAnimation}>
       <main className="relative overflow-visible bg-white">
         {/* Hero Section */}
         <Hero
-          badge={{ icon: "🏢", text: aboutUsData.header.badge }}
+          badge={{ icon: faBuilding, text: aboutUsData.header.badge }}
           title={aboutUsData.header.title}
           description={aboutUsData.header.description}
           variant="centered"
@@ -179,7 +192,7 @@ export default memo(function AboutPageClient() {
                         'backdrop-blur-sm',
                         EFFECTS_STYLES.base.transition.base
                       )}>
-                        <span className="text-2xl">{value.icon}</span>
+                        <FontAwesomeIcon icon={getIcon(value.title)} className="text-[#187baa]" />
                       </div>
                       <div>
                         <h4 className={twMerge(

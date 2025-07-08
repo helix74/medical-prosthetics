@@ -1,5 +1,5 @@
 import { IconType } from 'react-icons';
-import { FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaPhone, FaEnvelope } from 'react-icons/fa';
 import { type FC } from 'react';
 
 interface NavigationItem {
@@ -58,10 +58,5 @@ export const TOP_BAR_LINKS: ContactLink[] = [
     icon: FaEnvelope,
     label: 'direction@deltamedicalplus.tn', 
     href: 'mailto:direction@deltamedicalplus.tn' 
-  },
-  { 
-    icon: FaLinkedin,
-    label: 'LinkedIn', 
-    href: 'https://linkedin.com/company/deltamed' 
   },
 ]; 

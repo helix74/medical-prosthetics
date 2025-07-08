@@ -5,6 +5,7 @@ import '@/styles/safe-area.css';
 import '@/styles/containment.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer/index';
+import { WhatsAppChat } from '@/components/ui/chat/WhatsAppChat';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -63,6 +64,8 @@ export default function RootLayout({
         <div className="contain-layout-paint">
           <Footer />
         </div>
+
+        <WhatsAppChat phoneNumber="+216 99 221 620" />
       </body>
     </html>
   );

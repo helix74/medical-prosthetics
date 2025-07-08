@@ -10,6 +10,8 @@ import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Service, ServiceCardProps } from '../types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTools } from '@fortawesome/free-solid-svg-icons';
 
 const ServiceCard = memo(function ServiceCard({ service }: ServiceCardProps) {
   return (
@@ -119,8 +121,8 @@ export default memo(function ServicesList() {
               EFFECTS_STYLES.base.transition.base
             )}
           >
-            <span className="mr-2">🛠️</span>
-            Nos Services
+            <FontAwesomeIcon icon={faTools} className="mr-2 text-[#187baa]" />
+            Nos Services Spécialisés
           </motion.span>
 
           <motion.h2

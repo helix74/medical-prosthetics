@@ -4,6 +4,8 @@ import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, CONTAINER_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import { aboutUsData } from '../data';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const FADE_IN_UP = {
   initial: { opacity: 0, y: 20 },
@@ -49,7 +51,7 @@ const WhoWeAre = memo(function WhoWeAre() {
                 'hover:bg-[#187baa]/15'
               )}
             >
-              <span className="mr-2">👥</span>
+              <FontAwesomeIcon icon={faUsers} className="mr-2 text-[#187baa]" />
               <span className="font-medium text-sm">{whoWeAre.badge}</span>
             </motion.span>
 

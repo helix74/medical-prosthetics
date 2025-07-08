@@ -6,6 +6,8 @@ import { ANIMATION_VARIANTS, TRANSITION_PRESETS, STAGGER_CHILDREN } from '@/util
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, CONTAINER_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import { aboutUsData } from '../data';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default memo(function Values() {
   const { values } = aboutUsData;
@@ -31,7 +33,7 @@ export default memo(function Values() {
               'hover:bg-[#187baa]/20'
             )}
           >
-            <span className="mr-2">⭐</span>
+            <FontAwesomeIcon icon={faStar} className="mr-2 text-[#187baa]" />
             {values.badge}
           </motion.span>
           

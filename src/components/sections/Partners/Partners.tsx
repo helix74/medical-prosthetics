@@ -9,6 +9,8 @@ import { Section } from '@/components/ui/layout';
 import { partners, partnersData } from './data';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandshake } from '@fortawesome/free-solid-svg-icons';
 
 interface Partner {
   id: string;
@@ -41,7 +43,7 @@ const Partners = memo(function Partners() {
             'hover:bg-[#187baa]/20'
           )}
         >
-          <span className="mr-2">🤝</span>
+          <FontAwesomeIcon icon={faHandshake} className="mr-2 text-[#187baa]" />
           {partnersData.header.badge}
         </motion.span>
 

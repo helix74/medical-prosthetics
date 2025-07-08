@@ -7,6 +7,9 @@ import { ANIMATION_VARIANTS, TRANSITION_PRESETS, STAGGER_CHILDREN } from '@/util
 import { EFFECTS_STYLES, TYPOGRAPHY_STYLES, CONTAINER_STYLES } from '../../../../theme/styles';
 import OptimizedImage from '@/components/ui/OptimizedImage';
 import { servicesData } from '../data';
+import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default memo(function ServicesHeader() {
   return (
@@ -46,7 +49,7 @@ export default memo(function ServicesHeader() {
             'hover:bg-[#187baa]/20'
           )}
         >
-          <span className="mr-2">⭐</span>
+          <FontAwesomeIcon icon={faStar} className="mr-2 text-[#187baa]" />
           {servicesData.header.badge}
         </motion.div>
 

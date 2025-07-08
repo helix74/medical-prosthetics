@@ -69,6 +69,13 @@ export const partners: Partner[] = [
     logo: '/images/partners/alps.png',
     description: 'Solutions de pointe pour le confort des patients.',
     website: 'https://easyliner.eu/fr'
+  },
+  {
+    id: 'ethnocare',
+    name: 'Ethnocare',
+    logo: '/images/partners/ethnocare.jpg',
+    description: "Dispositifs prothétiques innovants utilisant l'air pour l'ajustement et le confort.",
+    website: 'https://ethnocare.ca'
   }
 ];
 
@@ -107,6 +114,12 @@ export const partnersData = {
             logo: "/images/partners/ottobock.png",
             description: "Pionnier en solutions prothétiques innovantes depuis plus de 100 ans.",
             products: ["Systèmes complets", "Composants", "Accessoires"]
+          },
+          {
+            name: "Ethnocare",
+            logo: "/images/partners/ethnocare.jpg",
+            description: "Dispositifs prothétiques innovants utilisant l'air pour l'ajustement et le confort.",
+            products: ["Prothèses"]
           }
         ]
       },

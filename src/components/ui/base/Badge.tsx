@@ -2,22 +2,38 @@ import { memo } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES } from '@/theme/styles';
 import { EFFECTS_STYLES } from '@/theme/styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faStar, faAward, faCircleCheck, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface BadgeProps {
-  icon?: string;
   text: string;
+  icon?: IconProp;
   variant?: 'primary' | 'secondary' | 'neutral' | 'success';
   size?: 'sm' | 'base';
   className?: string;
 }
 
 export const Badge = memo(function Badge({ 
-  icon, 
   text, 
+  icon,
   variant = 'primary',
   size = 'sm',
   className 
 }: BadgeProps) {
+  // Get appropriate icon based on variant if none provided
+  const getDefaultIcon = (): IconProp => {
+    switch (variant) {
+      case 'primary': return faStar;
+      case 'secondary': return faInfoCircle;
+      case 'success': return faCircleCheck;
+      case 'neutral': return faAward;
+      default: return faStar;
+    }
+  };
+
+  const iconToUse = icon || getDefaultIcon();
+
   const baseStyles = twMerge(
     size === 'sm' ? TYPOGRAPHY_STYLES.utils.getBody('sm') : TYPOGRAPHY_STYLES.utils.getBody('base'),
     'inline-flex items-center rounded-full font-medium',
@@ -41,8 +57,21 @@ export const Badge = memo(function Badge({
 
   return (
     <div className={baseStyles}>
-      {icon && <span className={twMerge("mr-2", size === 'sm' ? 'text-base' : 'text-lg')}>{icon}</span>}
-      {text}
+      <FontAwesomeIcon 
+        icon={iconToUse} 
+        className={twMerge(
+          'mr-2',
+          variant === 'primary' ? 'text-[#187baa]' : '',
+          variant === 'secondary' ? 'text-secondary-600' : '',
+          variant === 'neutral' ? 'text-neutral-600' : '',
+          variant === 'success' ? 'text-success-600' : '',
+          size === 'sm' ? 'w-3.5 h-3.5' : 'w-4 h-4'
+        )}
+      />
+      <span className={twMerge(
+        TYPOGRAPHY_STYLES.utils.getBody(size),
+        variant === 'primary' ? 'text-primary' : 'text-neutral'
+      )}>{text}</span>
     </div>
   );
 }); 

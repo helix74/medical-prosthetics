@@ -8,6 +8,8 @@ import { twMerge } from 'tailwind-merge';
 import { TYPOGRAPHY_STYLES, CONTAINER_STYLES, EFFECTS_STYLES } from '@/theme/styles';
 import dynamic from 'next/dynamic';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faTools, faGraduationCap, faHeadset, faWrench, faStar } from '@fortawesome/free-solid-svg-icons';
 
 // Features Section Component
 const FeaturesSection = memo(function FeaturesSection() {
@@ -29,8 +31,8 @@ const FeaturesSection = memo(function FeaturesSection() {
             'hover:bg-[#187baa]/20'
           )}
         >
-          <span className="mr-2">⭐</span>
-          Notre Expertise
+          <FontAwesomeIcon icon={faStar} className="mr-2 text-[#187baa]" />
+          Notre Formation
         </motion.span>
 
         <motion.h2
@@ -64,20 +66,8 @@ const FeaturesSection = memo(function FeaturesSection() {
             "Service après-vente"
           ].map((feature, index) => (
             <div key={index} className="flex items-center gap-3">
-              <svg
-                className={twMerge(
-                  'w-5 h-5 text-[#187baa] flex-shrink-0'
-                )}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
+              <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               <span className={twMerge(
                 TYPOGRAPHY_STYLES.utils.getBody('base'),
@@ -97,7 +87,7 @@ const ServicesGrid = memo(function ServicesGrid() {
     {
       title: "Consultation Technique",
       description: "Expertise personnalisée pour vos besoins spécifiques",
-      icon: "🔍",
+      icon: <FontAwesomeIcon icon={faSearch} className="text-[#187baa]" />,
       features: [
         "Analyse des besoins",
         "Recommandations sur mesure",
@@ -107,7 +97,7 @@ const ServicesGrid = memo(function ServicesGrid() {
     {
       title: "Support Technique",
       description: "Assistance continue pour vos équipements",
-      icon: "🛠️",
+      icon: <FontAwesomeIcon icon={faTools} className="text-[#187baa]" />,
       features: [
         "Maintenance préventive",
         "Réparations rapides",
@@ -117,7 +107,7 @@ const ServicesGrid = memo(function ServicesGrid() {
     {
       title: "Formation",
       description: "Programmes de formation adaptés",
-      icon: "📚",
+      icon: <FontAwesomeIcon icon={faGraduationCap} className="text-[#187baa]" />,
       features: [
         "Ateliers pratiques",
         "Documentation détaillée",
@@ -127,7 +117,7 @@ const ServicesGrid = memo(function ServicesGrid() {
     {
       title: "Service Après-Vente",
       description: "Suivi et maintenance de qualité",
-      icon: "🤝",
+      icon: <FontAwesomeIcon icon={faHeadset} className="text-[#187baa]" />,
       features: [
         "Garantie étendue",
         "Pièces de rechange",
@@ -151,7 +141,7 @@ const ServicesGrid = memo(function ServicesGrid() {
           )}
         >
           <div className="flex items-center gap-4 mb-6">
-            <span className="text-4xl">{service.icon}</span>
+            <span className="text-4xl text-[#187baa]">{service.icon}</span>
               <div>
                 <h3 className={twMerge(
                   TYPOGRAPHY_STYLES.utils.getHeading(3),
@@ -171,19 +161,9 @@ const ServicesGrid = memo(function ServicesGrid() {
             <ul className="space-y-3">
               {service.features.map((feature, featureIndex) => (
               <li key={featureIndex} className="flex items-center gap-3">
-                <svg
-                  className="w-5 h-5 text-[#187baa] flex-shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
+                <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
                 <span className={twMerge(
                   TYPOGRAPHY_STYLES.utils.getBody('base'),
                   'text-neutral-700'
@@ -210,9 +190,9 @@ export default memo(function ServicesPageClient() {
       <main className="relative overflow-hidden bg-white">
         {/* Hero Section */}
         <Hero
-          badge={{ icon: "🛠️", text: "Nos Services" }}
+          badge={{ icon: faWrench, text: "Nos Services" }}
           title="Services Professionnels"
-          description="Des solutions complètes pour répondre à vos besoins orthopédiques"
+          description="Une Expertise au Service de la Prothèse et de l'Orthèse. Des solutions complètes pour répondre à vos besoins orthopédiques"
           size="sm"
           variant="centered"
           className="bg-white mb-16"
@@ -245,8 +225,8 @@ export default memo(function ServicesPageClient() {
                     'hover:bg-[#187baa]/20'
                   )}
                 >
-                  <span className="mr-2">⭐</span>
-                  Notre Expertise
+                  <FontAwesomeIcon icon={faStar} className="mr-2 text-[#187baa]" />
+                  Notre Formation
                 </motion.span>
 
                 <motion.h2
@@ -286,25 +266,25 @@ export default memo(function ServicesPageClient() {
                   </h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span>Maîtres appareilleurs souhaitant perfectionner leurs connaissances sur les nouvelles solutions prothétiques.</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span>Podologues cherchant à intégrer des composants orthopédiques adaptés aux besoins de leurs patients.</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span>Responsables d&apos;approvisionnement des services étatiques, afin de mieux comprendre les spécificités des produits et optimiser leur gestion.</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span>Étudiants en appareillage, pour leur offrir un apprentissage pratique et renforcer leurs compétences avant leur entrée dans le monde professionnel.</span>
@@ -322,13 +302,13 @@ export default memo(function ServicesPageClient() {
                   <p className="mb-4">Nous mettons à disposition deux modes d&apos;apprentissage :</p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span>En ligne, pour un accès facile à nos contenus et formations interactives.</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span>Sur place, dans nos locaux à Bardo, Tunisie, pour des sessions pratiques et immersives.</span>
@@ -345,19 +325,19 @@ export default memo(function ServicesPageClient() {
                   </h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span><strong>Un savoir-faire éprouvé :</strong> Nos formations sont dispensées par des experts du domaine.</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span><strong>Une mise à jour continue :</strong> Nous intégrons les dernières avancées et références du marché.</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#187baa] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span><strong>Un accompagnement personnalisé :</strong> Chaque participant bénéficie d&apos;un suivi et de conseils adaptés.</span>

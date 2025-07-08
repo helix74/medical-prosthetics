@@ -1,7 +1,9 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
 export interface WhyUsItem {
   title: string;
   description: string;
-  icon: string;
+  icon: IconProp;
 }
 
 export interface Service {
@@ -44,6 +46,7 @@ export interface ServicesData {
   services: {
     title: string;
     description: string;
+    badge: string;
     items: Service[];
   };
   process: {

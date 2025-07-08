@@ -6,26 +6,11 @@ import { FADE_IN_UP, STAGGER_CHILDREN } from '@/utils/animations';
 import { TYPOGRAPHY_STYLES, EFFECTS_STYLES, CONTAINER_STYLES } from '@/theme/styles';
 import { contactData } from '../data';
 import { twMerge } from 'tailwind-merge';
-import { 
-  MapPinIcon, 
-  PhoneIcon, 
-  EnvelopeIcon, 
-  ClockIcon 
-} from '@heroicons/react/24/outline';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faPhone, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const getIcon = (iconName: string) => {
-  switch (iconName) {
-    case 'location':
-      return <MapPinIcon className="w-6 h-6" />;
-    case 'phone':
-      return <PhoneIcon className="w-6 h-6" />;
-    case 'email':
-      return <EnvelopeIcon className="w-6 h-6" />;
-    case 'clock':
-      return <ClockIcon className="w-6 h-6" />;
-    default:
-      return null;
-  }
+  return null;
 };
 
 const ContactInfo = memo(function ContactInfo() {

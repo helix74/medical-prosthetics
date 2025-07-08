@@ -1,8 +1,11 @@
 import type { ServicesData } from './types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faGraduationCap, faLightbulb, faHandshake, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 export const servicesData: ServicesData = {
   header: {
-    badge: "Nos Services",
+    badge: "Une Expertise au Service de la Prothèse et de l'Orthèse",
     title: "Solutions Orthopédiques Complètes",
     description: "Nous proposons une gamme complète de services orthopédiques personnalisés pour répondre à vos besoins spécifiques."
   },
@@ -25,22 +28,22 @@ export const servicesData: ServicesData = {
       {
         title: "Expertise Technique",
         description: "Une équipe de professionnels hautement qualifiés avec plus de 20 ans d'expérience",
-        icon: "🎯"
+        icon: faGraduationCap
       },
       {
         title: "Innovation Continue",
         description: "Utilisation des dernières technologies et matériaux pour des solutions optimales",
-        icon: "💡"
+        icon: faLightbulb
       },
       {
         title: "Service Personnalisé",
         description: "Une approche sur mesure adaptée aux besoins spécifiques de chaque patient",
-        icon: "🤝"
+        icon: faHandshake
       },
       {
         title: "Suivi Complet",
         description: "Accompagnement continu et ajustements réguliers pour garantir votre satisfaction",
-        icon: "✨"
+        icon: faCheckCircle
       }
     ]
   },
@@ -48,6 +51,7 @@ export const servicesData: ServicesData = {
   services: {
     title: "Nos Services Spécialisés",
     description: "Découvrez notre gamme complète de services orthopédiques",
+    badge: "notre formation",
     items: [
       {
         id: "protheses",

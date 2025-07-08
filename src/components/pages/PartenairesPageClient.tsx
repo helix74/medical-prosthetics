@@ -10,6 +10,8 @@ import Image from 'next/image';
 import { IMAGE_SIZES } from '@/theme/responsive';
 import { LAYOUT_PATTERNS } from '@/theme';
 import { partners, partnersData } from '@/components/sections/Partners/data';
+import { faHandshake, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Background Pattern Component
 const BackgroundPattern = memo(function BackgroundPattern() {
@@ -55,9 +57,9 @@ export default memo(function PartenairesPageClient() {
       <main className="relative overflow-hidden bg-white">
         {/* Hero Section */}
         <Hero
-          badge={{ icon: "🤝", text: "Nos Collaborations" }}
+          badge={{ icon: faHandshake, text: "Nos Collaborations" }}
           title="Nos Partenaires"
-          description="Découvrez les fabricants de renom avec lesquels nous collaborons pour vous offrir les meilleures solutions orthopédiques."
+          description="Une Collaboration Solide et Durable. Découvrez les fabricants de renom avec lesquels nous collaborons pour vous offrir les meilleures solutions orthopédiques."
           variant="centered"
           size="sm"
           className="bg-white mb-16"
@@ -85,7 +87,7 @@ export default memo(function PartenairesPageClient() {
                     'hover:bg-[#187baa]/20'
                   )}
                 >
-                  <span className="mr-2">💫</span>
+                  <FontAwesomeIcon icon={faStar} className="mr-2 text-[#187baa]" />
                   {partnersData.vision.badge}
                 </motion.span>
 

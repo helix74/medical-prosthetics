@@ -8,10 +8,12 @@ import { FADE_IN_UP } from '@/utils/animations';
 import { Badge } from '@/components/ui/base/Badge';
 import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
 import Image from 'next/image';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faStar, faCertificate, faMedal, faTrophy } from '@fortawesome/free-solid-svg-icons';
 
 interface HeroProps {
   badge?: {
-    icon?: string;
+    icon?: IconProp;
     text: string;
   };
   title: string;
@@ -42,6 +44,14 @@ export const Hero = memo(function Hero({
   size = 'md',
   showLogo = false
 }: HeroProps) {
+  // Helper function to convert legacy string icons to FontAwesome icons
+  const getBadgeIcon = (icon?: IconProp): IconProp => {
+    if (icon) return icon;
+    
+    // Default icon for badges
+    return faStar;
+  };
+
   const containerStyles = twMerge(
     CONTAINER_STYLES.variants.default,
     'relative z-10',
@@ -83,7 +93,7 @@ export const Hero = memo(function Hero({
           {badge && (
             <div className="flex justify-center">
               <Badge
-                icon={badge.icon}
+                icon={getBadgeIcon(badge.icon)}
                 text={badge.text}
                 variant="primary"
                 size="base"

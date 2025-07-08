@@ -27,7 +27,7 @@ export const contactData: ContactData = {
       },
       {
         title: "Horaires",
-        value: "Lun-Ven: 9h-18h",
+        value: "Lun-Ven: 8h30-17h00",
         icon: "clock"
       }
     ]

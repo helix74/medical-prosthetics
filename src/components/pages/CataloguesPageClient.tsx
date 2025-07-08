@@ -10,6 +10,7 @@ import { Hero, Section } from '@/components/ui/layout';
 import { SmartCTA } from '@/components/ui/cta';
 import { CATALOGS } from '@/components/sections/Catalogs/data';
 import { Catalog } from '@/components/sections/Catalogs/types';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 const getIconForCategory = (category: string) => {
   return <FaBook className="w-8 h-8" />;
@@ -86,7 +87,7 @@ export default memo(function CataloguesPageClient() {
       <main className="relative overflow-hidden bg-white">
         <Hero
           badge={{ 
-            icon: "📚", 
+            icon: faBook, 
             text: "Documentation technique complète"
           }}
           title="Nos Catalogues"

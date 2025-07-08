@@ -7,6 +7,7 @@ import { TYPOGRAPHY_STYLES, EFFECTS_STYLES, CONTAINER_STYLES } from '@/theme/sty
 import { twMerge } from 'tailwind-merge';
 import { partnersData } from '../data';
 import { SectionBadge } from '../../common/SectionBadge';
+import { faHandshake } from '@fortawesome/free-solid-svg-icons';
 
 const PartnersVision = memo(function PartnersVision() {
   const { vision } = partnersData;
@@ -29,8 +30,9 @@ const PartnersVision = memo(function PartnersVision() {
       >
         <div className="text-center mb-16">
           <SectionBadge 
-            icon="🤝"
+            icon={faHandshake}
             text={vision.badge}
+            isIconFontAwesome={true}
           />
           
           <m.h2

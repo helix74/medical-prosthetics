@@ -8,6 +8,8 @@ import { servicesData } from '../data';
 import { twMerge } from 'tailwind-merge';
 import { BackgroundLayers } from '@/components/ui/layout/BackgroundLayers';
 import { WhyUsItem } from '../types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
 
 const WhyUsCard = memo(function WhyUsCard({ item }: { item: WhyUsItem }) {
   return (
@@ -29,7 +31,7 @@ const WhyUsCard = memo(function WhyUsCard({ item }: { item: WhyUsItem }) {
         'group-hover:scale-110'
       )}>
         <span className="text-gray-600 text-2xl">
-          {item.icon}
+          <FontAwesomeIcon icon={item.icon} className="text-[#187baa]" />
         </span>
       </div>
 
@@ -79,7 +81,7 @@ export default memo(function ServicesWhyUs() {
                 EFFECTS_STYLES.base.transition.base
               )}
             >
-              <span className="mr-2">💡</span>
+              <FontAwesomeIcon icon={faLightbulb} className="mr-2 text-[#187baa]" />
               Pourquoi Nous Choisir
             </motion.span>
 
